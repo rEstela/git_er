@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, accuracy_score, confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 from utils import preprocess_data, oversample
 
@@ -47,9 +48,17 @@ y_pred = logreg_model.predict(X_test)
 print(f"F1 Score {f1_score(y_test, y_pred, average='macro')}")
 print(f"Accuracy {accuracy_score(y_test, y_pred)}")
 
+# Confusion Matrix
 conf_matrix = confusion_matrix(y_test, y_pred)
-print('Confusion Matrix: ')
-print(conf_matrix)
+#print('Confusion Matrix: ')
+#print(conf_matrix)
+
+plt.figure(figsize=(8,6))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted Labels')
+plt.ylabel('True Labels')
+plt.show()
 
 # Generate ROC
 fpr, tpr, thresholds = roc_curve(y_test, logreg_model.predict_proba(X_test)[:,1])
