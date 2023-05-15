@@ -87,3 +87,30 @@ plt.ylabel('Importance')
 plt.title('Feature Importance')
 plt.tight_layout()
 plt.show()
+
+# Select ans individual instance for feature importance analysis
+instance_index = 0
+individual_instance = X_test.iloc[instance_index]
+
+# Get feature importance for the individual instance
+individual_importance = logreg_model.predict_proba([individual_instance])[0]
+
+# Display feature importance for the individual instance
+print('Feature Importance for Individual Instance')
+for ind_feature, ind_importance in zip(X.columns, individual_importance):
+    print(f'{ind_feature}: {ind_importance}')
+
+# Sort individual importance
+individual_sorted_indices = np.argsort(individual_importance)[::-1]
+individual_sorted_importance = importance[individual_sorted_indices]
+individual_sorted_features = X.columns[individual_sorted_indices]
+
+# Plot the feature importance with colored bars
+plt.figure(figsize=(10, 6))
+plt.bar(range(len(individual_importance)), individual_sorted_importance, color=colors, tick_label=individual_sorted_features)
+plt.xticks(rotation=90)
+plt.xlabel('Features')
+plt.ylabel('Importance')
+plt.title('Individual Feature Importance')
+plt.tight_layout()
+plt.show()
