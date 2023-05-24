@@ -1,3 +1,18 @@
+'''
+SVD is one way to decompose matrices. Remember that matrices can be seen as linear transformations in space. 
+PCA relies on eigendecomposition, which can only be done for square matrices. You might wonder why the first example 
+worked with PCA if the data had far more observations than features. The reason is that when performing PCA you end up 
+using the matrix product XtX which is a square matrix.
+
+However you dont always have square matrices, and sometimes you have really sparse matrices.
+
+To decompose these types of matrices, which cant be decomposed with eigendecomposition, you can use techniques such as 
+Singular Value Decomposition. SVD decomposes the original dataset into its constituents, resulting in a reduction of dimensionality. 
+It is used to remove redundant features from the dataset.
+
+To check SVD you are going to use the digits dataset, which is made up of 1797 8x8 images of handwritten digits
+'''
+
 import numpy as np
 import pandas as pd
 import seaborn as sns
