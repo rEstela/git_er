@@ -1,4 +1,13 @@
 '''
+This is an unsupervised algorithm that creates linear combinations of the original features. 
+PCA is a widely used technique for dimension reduction since it is fast and easy to implement. 
+PCA aims to keep as much variance as possible from the original data in a lower dimensional space. 
+It finds the best axis to project the data so that the variance of the projections is maximized.
+
+In the lecture you saw PCA applied to the Iris dataset. This dataset has been used extensively to showcase PCA 
+so here you are going to do something different. You are going to use the HTRU_2 dataset which describes several 
+celestial objects and the idea is to be able to classify if an object is a pulsar star or not.
+
 The HTRU_2 dataset describes several celestial objects and the idea is to be able to classify if an object is a pulsar star or not.
 '''
 
