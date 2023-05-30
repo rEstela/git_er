@@ -69,7 +69,6 @@ def fit_compute_importance(clf):
   print("🔝 Top 4 features when using the test set:\n")
   feature_importance(clf, X_test, y_test, top_limit=4)
 
-
 # Print results
 for name, clf in clfs.items():
   print("====="*20)
