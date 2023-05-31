@@ -1,5 +1,7 @@
 # TESTE 2 - Gerando LIME manualmente
 # Ele mostra os exemplos de perturbações mais próximas da imagem original.
+# Ou seja, estou apenas calculando a distancia euclidiana da imagem original e das imagens perturbadas,
+# e plotando as imagens perturbadas mais proximas da original
 # Isso não é exatamente o que o LIME propõe
 
 import numpy as np
