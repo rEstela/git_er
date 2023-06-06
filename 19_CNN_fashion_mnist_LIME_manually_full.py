@@ -56,7 +56,7 @@ model.compile(optimizer='adam',
 
 early_stop = EarlyStopping(patience=3, monitor='val_loss', restore_best_weights=True)
 
-model.fit(x_train, y_train, epochs=1, batch_size=64,
+model.fit(x_train, y_train, epochs=10, batch_size=64,
           validation_data=(x_test, y_test), callbacks=[early_stop])
 
 # Fazer predições
@@ -373,7 +373,7 @@ segments = generate_superpixels(image, method='quickshift')
 
 
 # Passo 2: Gerar perturbações
-perturbations, flat_perturbations = generate_perturbations(image, segments, num_samples=10)
+perturbations, flat_perturbations = generate_perturbations(image, segments, num_samples=1000)
 
 
 # Passo 3: Fazer previsões com o modelo para as perturbações
@@ -402,6 +402,6 @@ print('-> Explanation shape:', explanation.shape)
 # coeficintes do modelo linear
 
 # Visualizar os N segmentos de maior importância
-visualize_segment_importance(image, segments, explanation, num_segments=300)
+visualize_segment_importance(image, segments, explanation, num_segments=250)
 # Manter apenas os N segmentos mais importantes
-keep_top_segments(image, segments, explanation, num_segments=300)
+keep_top_segments(image, segments, explanation, num_segments=250)
